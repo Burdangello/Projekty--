@@ -82,6 +82,18 @@ if username_password.get(username) == password:
             print(f"There are {len(n)} numeric strings.")
             print(f"The sum of all the numbers {s}")        
             print(dash)
+            words = TEXTS[0].split()
+            sequence_count = {}
+
+            for word in words:
+                seq_len = len(word)
+                sequence_count[seq_len] = sequence_count.get(seq_len, 0) + 1
+
+            table_str = "LEN|  OCCURRENCES  |NR.\n" + "-" * 40 + "\n"
+            for seq_len in range(1, 12):
+                count = sequence_count.get(seq_len, 0)
+                table_str += f"{seq_len:2}|{'*' * count: <13}|{count: <2}\n"
+            print(table_str)
         elif choice == "2":    
             print(f"There are {len(text2)} words in the selected text.")
             for word in text2:
@@ -106,6 +118,18 @@ if username_password.get(username) == password:
             print(f"There are {len(n)} numeric strings.")
             print(f"The sum of all the numbers {s}")        
             print(dash)
+            words = TEXTS[1].split()
+            sequence_count = {}
+
+            for word in words:
+                seq_len = len(word)
+                sequence_count[seq_len] = sequence_count.get(seq_len, 0) + 1
+
+            table_str = "LEN|  OCCURRENCES  |NR.\n" + "-" * 40 + "\n"
+            for seq_len in range(1, 12):
+                count = sequence_count.get(seq_len, 0)
+                table_str += f"{seq_len:2}|{'*' * count: <13}|{count: <2}\n"
+            print(table_str)
         elif choice == "3":    
             print(f"There are {len(text3)} words in the selected text.")
             for word in text3:
@@ -126,6 +150,18 @@ if username_password.get(username) == password:
             print(f"There are {len(n)} numeric strings.")
             print(f"The sum of all the numbers {s}")        
             print(dash)
+            words = TEXTS[2].split()
+            sequence_count = {}
+
+            for word in words:
+                seq_len = len(word)
+                sequence_count[seq_len] = sequence_count.get(seq_len, 0) + 1
+
+            table_str = "LEN|  OCCURRENCES  |NR.\n" + "-" * 40 + "\n"
+            for seq_len in range(1, 12):
+                count = sequence_count.get(seq_len, 0)
+                table_str += f"{seq_len:2}|{'*' * count: <13}|{count: <2}\n"
+            print(table_str)
         else:
             print("Please, pick number 1, 2 or 3. terminating the program!")
     else:
@@ -134,27 +170,3 @@ else:
     print(f"unregistered user, terminating the program...")
     
 
-text = '''
-Situated about 10 miles west of Kemmerer,
-Fossil Butte is a ruggedly impressive
-topographic feature that rises sharply
-some 1000 feet above Twin Creek Valley
-to an elevation of more than 7500 feet
-above sea level. The butte is located just
-north of US 30N and the Union Pacific Railroad,
-which traverse the valley.
-'''
-
-
-words = text.split()
-sequence_count = {}
-for word in words:
-    seq_len = len(word)
-    sequence_count[seq_len] = sequence_count.get(seq_len, 0) + 1
-
-table_str = "LEN|  OCCURRENCES  |NR.\n" + "-" * 40 + "\n"
-
-for seq_len in range(1, 12):
-    count = sequence_count.get(seq_len, 0)
-    table_str += f"{seq_len:2}|{'*' * count: <13}|{count: <2}\n"
-print(table_str)
