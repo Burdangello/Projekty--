@@ -1,5 +1,5 @@
 """
-projekt_1.py: první projekt do Engeto Online Python Akademie
+projekt_1.py: první projekt do Engeto online Python akademie
 author: Martin Burian
 email: martajs4@seznam.cz
 discord: Burdangello
