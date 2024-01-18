@@ -56,10 +56,10 @@ if username_password.get(username) == password:
         
         choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
         if choice.isnumeric():
-            if choice in len(TEXTS):
+            if 1 <= int(choice) <= len(TEXTS):
                 text_part = TEXTS[choice - 1]
-
-
+            else:
+                print(f"Please, pic number between 1 and {len(TEXTS)}. terminating the program!")
         else:
             print("Entered input isn't number, terminating the program!")
 else:
