@@ -50,10 +50,18 @@ if username_password.get(username) == password:
     print(dash)
     print(f"Welcome to the app, {username}")
     print(dash)
-    print("We have 3 texts to be analyzed.") 
+    print(f"We have {len(TEXTS)} texts to be analyzed.") 
     print(dash)
     for i, part in enumerate(TEXTS, start=1):
-        print(f"{i}. Part {i}")
+        
+        choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
+        if choice.isnumeric():
+            if choice in len(TEXTS):
+                text_part = TEXTS[choice - 1]
+
+
+        else:
+            print("Entered input isn't number, terminating the program!")
 else:
     print(f"unregistered user, terminating the program...")
 
@@ -70,10 +78,10 @@ else:
 
 
 
-# # Display available text parts
-# print("We have the following parts of text:")
-# for i, part in enumerate(TEXTS, start=1):
-#     print(f"{i}. Part {i}")
+# Display available text parts
+print("We have the following parts of text:")
+for i, part in enumerate(TEXTS, start=1):
+    print(f"{i}. Part {i}")
 
 # Get user input for the part to analyze
 while True:
