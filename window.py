@@ -55,21 +55,23 @@ if username_password.get(username) == password:
     choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
     if choice.isnumeric():
         if 1 <= int(choice) <= len(TEXTS):
-            text_part = (TEXTS[int(choice)])
+            text_part = (TEXTS[int(choice) - 1])
             words = text_part.split()
+            
             total_words = len(words)
             titlecase_words = sum(1 for word in words if word.istitle())
             uppercase_words = sum(1 for word in words if word.isupper())
             lowercase_words = sum(1 for word in words if word.islower())
             numeric_strings = sum(1 for word in words if word.isnumeric())
             sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
+        
         else:
             print(f"Please, choose number between 1 and {len(TEXTS)}. terminating the program!")
     else:
         print("Entered input isn't number, terminating the program!")
 else:
     print(f"unregistered user, terminating the program...")
-
+print(dash)
 print(f"There are {total_words} words in the selected text part.")
 print(f"There are {titlecase_words} titlecase words.")
 print(f"There are {uppercase_words} uppercase words.")
@@ -88,53 +90,53 @@ print(f"The sum of all the numbers {sum_of_numbers}")
 
 
 
-# Display available text parts
-print("We have the following parts of text:")
-for i, part in enumerate(TEXTS, start=1):
-    print(f"{i}. Part {i}")
+# # Display available text parts
+# print("We have the following parts of text:")
+# for i, part in enumerate(TEXTS, start=1):
+#     print(f"{i}. Part {i}")
 
-# Get user input for the part to analyze
-while True:
-    try:
-        selected_part = int(input("Enter a number between 1 and "
-                                  f"{len(TEXTS)} to select a part: "))
-        if 1 <= selected_part <= len(TEXTS):
-            break
-        else:
-            print("Invalid input. Please enter a valid number.")
-    except ValueError:
-        print("Invalid input. Please enter a number.")
+# # Get user input for the part to analyze
+# while True:
+#     try:
+#         selected_part = int(input("Enter a number between 1 and "
+#                                   f"{len(TEXTS)} to select a part: "))
+#         if 1 <= selected_part <= len(TEXTS):
+#             break
+#         else:
+#             print("Invalid input. Please enter a valid number.")
+#     except ValueError:
+#         print("Invalid input. Please enter a number.")
 
-# Analyze the selected text part
-text_part = TEXTS[selected_part - 1]
+# # Analyze the selected text part
+# text_part = TEXTS[selected_part - 1]
 
-# Analyze the selected text part
-words = text_part.split()
+# # Analyze the selected text part
+# words = text_part.split()
 
-total_words = len(words)
-titlecase_words = sum(1 for word in words if word.istitle())
-uppercase_words = sum(1 for word in words if word.isupper())
-lowercase_words = sum(1 for word in words if word.islower())
-numeric_strings = sum(1 for word in words if word.isnumeric())
-sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
+# total_words = len(words)
+# titlecase_words = sum(1 for word in words if word.istitle())
+# uppercase_words = sum(1 for word in words if word.isupper())
+# lowercase_words = sum(1 for word in words if word.islower())
+# numeric_strings = sum(1 for word in words if word.isnumeric())
+# sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
 
-histogram = {}
-for word in words:
-    length = len(word)
-    histogram[length] = histogram.get(length, 0) + 1
+# histogram = {}
+# for word in words:
+#     length = len(word)
+#     histogram[length] = histogram.get(length, 0) + 1
 
-# Display analysis results
-print(f"\nAnalysis for Part {selected_part}:\n")
-print(f"There are {total_words} words in the selected text part.")
-print(f"There are {titlecase_words} titlecase words.")
-print(f"There are {uppercase_words} uppercase words.")
-print(f"There are {lowercase_words} lowercase words.")
-print(f"There are {numeric_strings} numeric strings.")
-print(f"The sum of all the numbers {sum_of_numbers}")
+# # Display analysis results
+# print(f"\nAnalysis for Part {selected_part}:\n")
+# print(f"There are {total_words} words in the selected text part.")
+# print(f"There are {titlecase_words} titlecase words.")
+# print(f"There are {uppercase_words} uppercase words.")
+# print(f"There are {lowercase_words} lowercase words.")
+# print(f"There are {numeric_strings} numeric strings.")
+# print(f"The sum of all the numbers {sum_of_numbers}")
 
-# Display histogram
-print("\n----------------------------------------")
-print("LEN|  OCCURRENCES  |NR.")
-print("----------------------------------------")
-for length, occurrences in sorted(histogram.items()):
-    print(f"{length:2}|{'*' * occurrences:>{12}}|{occurrences}")
+# # Display histogram
+# print("\n----------------------------------------")
+# print("LEN|  OCCURRENCES  |NR.")
+# print("----------------------------------------")
+# for length, occurrences in sorted(histogram.items()):
+#     print(f"{length:2}|{'*' * occurrences:>{12}}|{occurrences}")
