@@ -52,20 +52,30 @@ if username_password.get(username) == password:
     print(dash)
     print(f"We have {len(TEXTS)} texts to be analyzed.") 
     print(dash)
-    for i, part in enumerate(TEXTS, start=1):
-        
-        choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
-        if choice.isnumeric():
-            if 1 <= int(choice) <= len(TEXTS):
-                text_part = TEXTS[choice - 1]
-            else:
-                print(f"Please, pic number between 1 and {len(TEXTS)}. terminating the program!")
+    choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
+    if choice.isnumeric():
+        if 1 <= int(choice) <= len(TEXTS):
+            text_part = (TEXTS[int(choice)])
+            words = text_part.split()
+            total_words = len(words)
+            titlecase_words = sum(1 for word in words if word.istitle())
+            uppercase_words = sum(1 for word in words if word.isupper())
+            lowercase_words = sum(1 for word in words if word.islower())
+            numeric_strings = sum(1 for word in words if word.isnumeric())
+            sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
         else:
-            print("Entered input isn't number, terminating the program!")
+            print(f"Please, choose number between 1 and {len(TEXTS)}. terminating the program!")
+    else:
+        print("Entered input isn't number, terminating the program!")
 else:
     print(f"unregistered user, terminating the program...")
 
-
+print(f"There are {total_words} words in the selected text part.")
+print(f"There are {titlecase_words} titlecase words.")
+print(f"There are {uppercase_words} uppercase words.")
+print(f"There are {lowercase_words} lowercase words.")
+print(f"There are {numeric_strings} numeric strings.")
+print(f"The sum of all the numbers {sum_of_numbers}")
 
 
 
