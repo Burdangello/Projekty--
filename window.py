@@ -1,3 +1,9 @@
+"""
+projekt_1.py: první projekt do Engeto online Python akademie
+author: Martin Burian
+email: martajs4@seznam.cz
+discord: Burdangello
+"""
 TEXTS = ['''
 Situated about 10 miles west of Kemmerer,
 Fossil Butte is a ruggedly impressive
@@ -24,7 +30,15 @@ represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
+
 ]
+
+
+dash = "-" * 40
+
+
+
+
 
 # Display available text parts
 print("We have the following parts of text:")

@@ -30,11 +30,9 @@ represent several varieties of perch, as well as
 other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish,
 garpike and stingray are also present.'''
+
 ]
 
-text1 = TEXTS[0].split()
-text2 = TEXTS[1].split()
-text3 = TEXTS[2].split()
 
 i = list()
 u = list()
@@ -44,6 +42,7 @@ s = 0
 dash = "-" * 40
 
 username_password = {
+    
     "bob" : "123",
     "ann" : "pass123",
     "mike" : "password",
