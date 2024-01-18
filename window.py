@@ -50,7 +50,10 @@ if username_password.get(username) == password:
     print(dash)
     print(f"Welcome to the app, {username}")
     print(dash)
-
+    print("We have 3 texts to be analyzed.") 
+    print(dash)
+    for i, part in enumerate(TEXTS, start=1):
+        print(f"{i}. Part {i}")
 else:
     print(f"unregistered user, terminating the program...")
 
@@ -67,10 +70,10 @@ else:
 
 
 
-# Display available text parts
-print("We have the following parts of text:")
-for i, part in enumerate(TEXTS, start=1):
-    print(f"{i}. Part {i}")
+# # Display available text parts
+# print("We have the following parts of text:")
+# for i, part in enumerate(TEXTS, start=1):
+#     print(f"{i}. Part {i}")
 
 # Get user input for the part to analyze
 while True:
