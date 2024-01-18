@@ -1,5 +1,5 @@
 """
-projekt_1.py: první projekt do Engeto online Python akademie
+projekt_1.py: První projekt do Engeto online Python akademie.
 author: Martin Burian
 email: martajs4@seznam.cz
 discord: Burdangello
@@ -47,6 +47,7 @@ username_password = {
     "mike" : "password",
     "liz" : "pass123",
 }
+
 username = input("Insert your username: ")
 password = input("Insert your password: ")
 
@@ -72,28 +73,12 @@ if username_password.get(username) == password:
                     sum += int(word)
             else:    
                 pass
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            # titlecase_words = sum(1 for word in words if word.istitle())
-            # uppercase_words = sum(1 for word in words if word.isupper())
-            # lowercase_words = sum(1 for word in words if word.islower())
-            # numeric_strings = sum(1 for word in words if word.isnumeric())
-            # sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
-        
         else:
             print(f"Please, choose number between 1 and {len(TEXTS)}. terminating the program!")
     else:
         print("Entered input isn't number, terminating the program!")
 else:
-    print(f"unregistered user, terminating the program...")
+    print(f"Unregistered user, terminating the program...")
 
 print(dash)
 print(f"There are {len(words)} words in the selected text.")
@@ -102,76 +87,20 @@ print(f"There are {len(uppercase_words)} uppercase words.")
 print(f"There are {len(lowercase_words)} lowercase words.")
 print(f"There are {len(numeric_strings)} numeric strings.")
 print(f"The sum of all the numbers {sum}.") 
+print(dash)
 
 
+words = text_part.split()
+sequence_count = {}
+
+for word in words:
+    seq_len = len(word)
+    sequence_count[seq_len] = sequence_count.get(seq_len, 0) + 1
+
+table_str = "LEN|  OCCURRENCES  |NR.\n" + "-" * 40 + "\n"
+for seq_len in range(1, 12):
+    count = sequence_count.get(seq_len, 0)
+    table_str += f"{seq_len:2}|{'*' * count: <13}|{count: <2}\n"
+print(table_str)
 
 
-
-# print(f"There are {total_words} words in the selected text.")
-# print(f"There are {titlecase_words} titlecase words.")
-# print(f"There are {uppercase_words} uppercase words.")
-# print(f"There are {lowercase_words} lowercase words.")
-# print(f"There are {numeric_strings} numeric strings.")
-# print(f"The sum of all the numbers {sum_of_numbers}")
-
-
-
-
-
-
-
-
-
-
-
-
-# # Display available text parts
-# print("We have the following parts of text:")
-# for i, part in enumerate(TEXTS, start=1):
-#     print(f"{i}. Part {i}")
-
-# # Get user input for the part to analyze
-# while True:
-#     try:
-#         selected_part = int(input("Enter a number between 1 and "
-#                                   f"{len(TEXTS)} to select a part: "))
-#         if 1 <= selected_part <= len(TEXTS):
-#             break
-#         else:
-#             print("Invalid input. Please enter a valid number.")
-#     except ValueError:
-#         print("Invalid input. Please enter a number.")
-
-# # Analyze the selected text part
-# text_part = TEXTS[selected_part - 1]
-
-# # Analyze the selected text part
-# words = text_part.split()
-
-# total_words = len(words)
-# titlecase_words = sum(1 for word in words if word.istitle())
-# uppercase_words = sum(1 for word in words if word.isupper())
-# lowercase_words = sum(1 for word in words if word.islower())
-# numeric_strings = sum(1 for word in words if word.isnumeric())
-# sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
-
-# histogram = {}
-# for word in words:
-#     length = len(word)
-#     histogram[length] = histogram.get(length, 0) + 1
-
-# # Display analysis results
-# print(f"\nAnalysis for Part {selected_part}:\n")
-# print(f"There are {total_words} words in the selected text part.")
-# print(f"There are {titlecase_words} titlecase words.")
-# print(f"There are {uppercase_words} uppercase words.")
-# print(f"There are {lowercase_words} lowercase words.")
-# print(f"There are {numeric_strings} numeric strings.")
-# print(f"The sum of all the numbers {sum_of_numbers}")
-
-# # Display histogram
-# print("\n----------------------------------------")
-# print("LEN|  OCCURRENCES  |NR.")
-# print("----------------------------------------")
-# for length, occurrences in sorted(histogram.items()):
-#     print(f"{length:2}|{'*' * occurrences:>{12}}|{occurrences}")
