@@ -33,7 +33,11 @@ garpike and stingray are also present.'''
 
 ]
 
-
+titlecase_words = list()
+uppercase_words = list()
+lowercase_words = list()
+numeric_strings = list()
+sum = 0
 dash = "-" * 40
 
 username_password = {
@@ -49,7 +53,6 @@ password = input("Insert your password: ")
 if username_password.get(username) == password:
     print(dash)
     print(f"Welcome to the app, {username}")
-    print(dash)
     print(f"We have {len(TEXTS)} texts to be analyzed.") 
     print(dash)
     choice = (input(f"Enter a number btw. 1 and {len(TEXTS)} to select: "))
@@ -57,13 +60,33 @@ if username_password.get(username) == password:
         if 1 <= int(choice) <= len(TEXTS):
             text_part = (TEXTS[int(choice) - 1])
             words = text_part.split()
+            for word in words:
+                if word.istitle():
+                    titlecase_words.append(word)
+                elif word.isupper():
+                    uppercase_words.append(word)
+                elif word.islower():
+                    lowercase_words.append(word)
+                elif word.isnumeric():
+                    numeric_strings.append(word)
+                    sum += int(word)
+            else:    
+                pass
             
-            total_words = len(words)
-            titlecase_words = sum(1 for word in words if word.istitle())
-            uppercase_words = sum(1 for word in words if word.isupper())
-            lowercase_words = sum(1 for word in words if word.islower())
-            numeric_strings = sum(1 for word in words if word.isnumeric())
-            sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            # titlecase_words = sum(1 for word in words if word.istitle())
+            # uppercase_words = sum(1 for word in words if word.isupper())
+            # lowercase_words = sum(1 for word in words if word.islower())
+            # numeric_strings = sum(1 for word in words if word.isnumeric())
+            # sum_of_numbers = sum(int(word) for word in words if word.isnumeric())
         
         else:
             print(f"Please, choose number between 1 and {len(TEXTS)}. terminating the program!")
@@ -71,13 +94,25 @@ if username_password.get(username) == password:
         print("Entered input isn't number, terminating the program!")
 else:
     print(f"unregistered user, terminating the program...")
+
 print(dash)
-print(f"There are {total_words} words in the selected text part.")
-print(f"There are {titlecase_words} titlecase words.")
-print(f"There are {uppercase_words} uppercase words.")
-print(f"There are {lowercase_words} lowercase words.")
-print(f"There are {numeric_strings} numeric strings.")
-print(f"The sum of all the numbers {sum_of_numbers}")
+print(f"There are {len(words)} words in the selected text.")
+print(f"There are {len(titlecase_words)} titlecase word.")
+print(f"There are {len(uppercase_words)} uppercase words.")
+print(f"There are {len(lowercase_words)} lowercase words.")
+print(f"There are {len(numeric_strings)} numeric strings.")
+print(f"The sum of all the numbers {sum}.") 
+
+
+
+
+
+# print(f"There are {total_words} words in the selected text.")
+# print(f"There are {titlecase_words} titlecase words.")
+# print(f"There are {uppercase_words} uppercase words.")
+# print(f"There are {lowercase_words} lowercase words.")
+# print(f"There are {numeric_strings} numeric strings.")
+# print(f"The sum of all the numbers {sum_of_numbers}")
 
 
 
