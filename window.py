@@ -36,6 +36,33 @@ garpike and stingray are also present.'''
 
 dash = "-" * 40
 
+username_password = {
+    
+    "bob" : "123",
+    "ann" : "pass123",
+    "mike" : "password",
+    "liz" : "pass123",
+}
+username = input("Insert your username: ")
+password = input("Insert your password: ")
+
+if username_password.get(username) == password:
+    print(dash)
+    print(f"Welcome to the app, {username}")
+    print(dash)
+
+else:
+    print(f"unregistered user, terminating the program...")
+
+
+
+
+
+
+
+
+
+
 
 
 
